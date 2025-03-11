@@ -7,7 +7,6 @@ const fsoRouter = require("./routes/fso.routes.js")
 const cors = require("cors")
 
 
-
 app.use(cors())
 app.use(express.json())
 

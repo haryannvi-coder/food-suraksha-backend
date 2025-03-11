@@ -1,8 +1,9 @@
 {
   "scripts": {
-  "start": "node index.js"
-},
+    "start": "node index.js"
+  },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.758.0",
     "axios": "^1.8.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",

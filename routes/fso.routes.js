@@ -1,8 +1,8 @@
 const express = require("express")
-const router = express.Router();
-const fsoUser = require("../models/fso.model.js");
-const { ScanCommand } = require('@aws-sdk/client-dynamodb');
-const client = require('../connectAWS.js');
+const router = express.Router()
+const fsoUser = require("../models/fso.model.js")
+const { ScanCommand } = require('@aws-sdk/client-dynamodb')
+const client = require('../connectAWS.js')
 
 // signup code 
 router.post('/signup', async function (req, res){
@@ -54,21 +54,24 @@ router.post("/signin", async (req, res) => {
 // hotels data
 router.get("/hotelData", async (req, res) => {
     try {
-        const command = new ScanCommand({ TableName: 'TestResults' });
-        const { Items } = await client.send(command);
+        const command = new ScanCommand({ TableName: 'TestResults' })
+        const { Items } = await client.send(command)
+        console.log("Items = ", Items);
+        
         const hotels = Items.map((item) => ({
-        id_number: item.id_number.S,
-        hotel_name: item.hotel_name.S,
-        ml_model_output: parseInt(item.ml_model_output.N),
-        sanitation: item.sanitation.S,
-        timestamp: item.timestamp.S,
+            id_number: item.id_number.S,
+            hotel_name: item.hotel_name.S,
+            ml_model_output: parseInt(item.ml_model_output.N),
+            sanitation: item.sanitation.S,
+            timestamp: item.timestamp.S,
+            image: item.image_data.S,
         }));
-        console.log('api call made to this endpoint = ', hotels);
-        res.json(hotels);
+        // console.log('api call made to this endpoint = ', hotels)
+        res.json(hotels)
     } 
     catch (error) {
-        console.error('Error fetching items:', error);
-        res.status(500).send('Internal Server Error');
+        console.error('Error fetching items:', error)
+        res.status(500).send('Internal Server Error')
     }
 }) 
 

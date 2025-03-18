@@ -4,6 +4,7 @@ const port = 3005
 const connectDB = require("./db.js")
 require('dotenv').config()
 const fsoRouter = require("./routes/fso.routes.js")
+const hotelRouter = require("./routes/hotel.routes.js")
 const cors = require("cors")
 
 
@@ -13,6 +14,7 @@ app.use(express.json())
 connectDB()
 
 app.use("/api/v1/fso", fsoRouter)
+app.use("/api/v1/hotel", hotelRouter)
 
 
 app.listen(port, () => {

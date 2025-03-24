@@ -66,6 +66,7 @@ router.get("/hotelData", async (req, res) => {
             sanitation: item.sanitation.S,
             timestamp: item.timestamp.S,
             image: item.image_data.S,
+            district: item.district.S
         }));
         // console.log('api call made to this endpoint = ', hotels)
         res.json(hotels)

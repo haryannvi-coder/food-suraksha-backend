@@ -58,6 +58,7 @@ router.get("/hotelData", async (req, res) => {
         const { Items } = await client.send(command)
         console.log("Items = ", Items);
         
+        
         const hotels = Items.map((item) => ({
             id_number: item.id_number.S,
             hotel_name: item.hotel_name.S,

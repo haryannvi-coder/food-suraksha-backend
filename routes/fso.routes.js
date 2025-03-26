@@ -100,7 +100,6 @@ router.get("/hotelData", async (req, res) => {
             image: item.image_data.S,
             district: item.district.S,
         }));
-<<<<<<< HEAD
 
         // Group hotels by name and count issues
         const hotelIssues = hotels.reduce((acc, hotel) => {
@@ -132,15 +131,6 @@ router.get("/hotelData", async (req, res) => {
     } catch (error) {
         console.error("Error fetching items:", error);
         res.status(500).send("Internal Server Error");
-=======
-        // console.log('api call made to this endpoint = ', hotels)
-        res.json(hotels)
-    } 
-    
-    catch (error) {
-        console.error('Error fetching items:', error)
-        res.status(500).send('Internal Server Error')
->>>>>>> 8ff1810c415758ce7ef243c07f757941840ee343
     }
 });
 

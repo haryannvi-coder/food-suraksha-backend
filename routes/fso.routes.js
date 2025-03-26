@@ -82,7 +82,6 @@ router.post("/signin", async (req, res) => {
 */
 
 
-To prevent sending multiple emails every time t
 
 let lastEmailedHotel = null;
 let lastEmailTimestamp = 0;

@@ -3,6 +3,7 @@ const router = express.Router()
 const fsoUser = require("../models/fso.model.js")
 const { ScanCommand } = require('@aws-sdk/client-dynamodb')
 const client = require('../connectAWS.js')
+const nodemailer = require('nodemailer')
 
 // signup code 
 router.post('/signup', async function (req, res){

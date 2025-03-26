@@ -53,8 +53,7 @@ router.post("/signin", async (req, res) => {
 
 
 // hotels data
-/*
-//router.get("/hotelData", async (req, res) => {
+router.get("/hotelData", async (req, res) => {
     try {
         const command = new ScanCommand({ TableName: 'TestResults' })
         const { Items } = await client.send(command)
@@ -79,7 +78,7 @@ router.post("/signin", async (req, res) => {
         res.status(500).send('Internal Server Error')
     }
 }) 
-*/
+
 
 
 /*
@@ -123,7 +122,7 @@ router.get("/hotelData", async (req, res) => {
         const now = Date.now();
         if (maxIssueHotel && (maxIssueHotel.name !== lastEmailedHotel || now - lastEmailTimestamp > EMAIL_COOLDOWN_MS)) {
             sendEmail(maxIssueHotel);
-            lastEmailedHotel = maxIssueHotel.name;
+           // lastEmailedHotel = maxIssueHotel.name;
             lastEmailTimestamp = now;
         }
 
@@ -134,6 +133,8 @@ router.get("/hotelData", async (req, res) => {
     }
 });
 
+
+/*
 // Function to send email
 async function sendEmail(hotel) {
     const transporter = nodemailer.createTransport({
@@ -161,7 +162,7 @@ async function sendEmail(hotel) {
 }
 */
 
-
+/*
 const fs = require("fs");
 const path = require("path");
 
@@ -257,7 +258,7 @@ async function sendEmailWithImages(hotel) {
         console.error("Email sending failed:", error);
     }
 }
-
+*/
 
 
     
